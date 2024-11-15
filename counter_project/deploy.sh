@@ -1,5 +1,13 @@
 #!/bin/bash
 
+set -e
+
+echo "Starting Minikube..."
+minikube start
+
+echo "Setting Minikube context..."
+kubectl config use-context minikube
+
 echo "Building Docker image..."
 docker build -t django-app:local .
 
